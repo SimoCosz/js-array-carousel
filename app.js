@@ -22,3 +22,18 @@ const text = [
   'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
+// cerco dove andare a inserire l'immagine + titolo + descrizione nell'html
+const slideWrapper = document.querySelector('.slide-wrapper')
+// creo un ciclo per andare ad creare le varie varianti
+
+for (let i = 0; i < items.length; i++ ){
+  slideWrapper.innerHTML += `
+  <div class="item">
+    <img src="${items[i]}" alt="">
+    <div class="description">
+      <h6 class="titolo">${title[i]}</h6>
+      <p class="paragrafo">${text[i]}</p>
+    </div>
+  </div>
+  `
+}
