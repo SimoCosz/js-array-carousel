@@ -20,6 +20,7 @@ section{
 .slider{
   width: 50vw;
   height: 50vh;
+  user-select: none;
 }
 
 .item{
@@ -61,13 +62,16 @@ section{
   left: 50%;
   transform: translateX(-50%);
   height: 100%;
+  user-select: none;
+  z-index: 99999;
 }
 
-.arrows span{
+.go-up, .go-down{
   background-color: rgba(250, 250, 250, 1);
   font-size: 12px;
   border-radius: 50%;
   padding: 0 4px;
+  cursor: pointer;
 }
 
 .controls{
@@ -75,13 +79,13 @@ section{
   background-color: #333;
 }
 
-.controls img{
+.controls .image{
   object-fit: cover;
   object-position: center;
   opacity: 0.3;
 }
 
-.controls img.active{
+.controls .image.active{
   opacity: 1;
   border: 2px solid white;
 }

@@ -22,18 +22,45 @@ const text = [
   'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
-// cerco dove andare a inserire l'immagine + titolo + descrizione nell'html
-const slideWrapper = document.querySelector('.slide-wrapper')
-// creo un ciclo per andare ad creare le varie varianti
+let currentIndex = 0
 
-for (let i = 0; i < items.length; i++ ){
-  slideWrapper.innerHTML += `
-  <div class="item">
-    <img src="${items[i]}" alt="">
-    <div class="description">
-      <h6 class="titolo">${title[i]}</h6>
-      <p class="paragrafo">${text[i]}</p>
+// cerco dove andare a inserire l'immagine + titolo + descrizione nell'html
+// VARIABILI
+const slideWrapper = document.querySelector('.slide-wrapper')
+const next = document.querySelector('.go-down')
+const prev = document.querySelector('.go-up')
+// creo un ciclo per andare ad creare le varie varianti
+// attivo il ciclo al click della freccia
+
+
+  for (let i = 0; i < items.length; i++ ){
+  const item = `
+    <div class="item">
+      <img src="${items[i]}" alt="">
+      <div class="description">
+        <h6 class="titolo">${title[i]}</h6>
+        <p class="paragrafo">${text[i]}</p>
+      </div>
     </div>
-  </div>
-  `
-}
+    ` 
+    slideWrapper.innerHTML += item
+  }
+  
+const itemImage = [...document.getElementsByClassName('item')]
+itemImage[currentIndex].classList.add('active')
+
+prev.addEventListener('click', function(){
+  if( currentIndex > 0){
+    itemImage[currentIndex].classList.remove('active')
+    currentIndex--
+    itemImage[currentIndex].classList.add('active')
+  }
+})
+
+next.addEventListener('click', function(){
+  if (currentIndex < items.length - 1){
+    itemImage[currentIndex].classList.remove('active')
+    currentIndex++
+    itemImage[currentIndex].classList.add('active')
+  }
+})
