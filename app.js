@@ -27,6 +27,7 @@ let currentIndex = 0
 // cerco dove andare a inserire l'immagine + titolo + descrizione nell'html
 // VARIABILI
 const slideWrapper = document.querySelector('.slide-wrapper')
+const controlImage = document.querySelector('.control-image')
 const next = document.querySelector('.go-down')
 const prev = document.querySelector('.go-up')
 // creo un ciclo per andare ad creare le varie varianti
@@ -49,18 +50,38 @@ const prev = document.querySelector('.go-up')
 const itemImage = [...document.getElementsByClassName('item')]
 itemImage[currentIndex].classList.add('active')
 
+
+
 prev.addEventListener('click', function(){
   if( currentIndex > 0){
     itemImage[currentIndex].classList.remove('active')
+    itemControl[currentIndex].classList.remove('active')
     currentIndex--
     itemImage[currentIndex].classList.add('active')
+    itemControl[currentIndex].classList.add('active')
   }
 })
 
 next.addEventListener('click', function(){
   if (currentIndex < items.length - 1){
     itemImage[currentIndex].classList.remove('active')
+    itemControl[currentIndex].classList.remove('active')
     currentIndex++
     itemImage[currentIndex].classList.add('active')
+    itemControl[currentIndex].classList.add('active')
+
   }
 })
+
+for (let i=0; i < items.length; i++){
+  const navImage = `
+    <div class="controls ">
+      <img class="image" src="${items[i]}" alt="">
+    </div>
+  `
+  controlImage.innerHTML += navImage
+}
+
+const itemControl = [...document.getElementsByClassName('image')]
+itemControl[currentIndex].classList.add('active')
+
