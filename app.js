@@ -51,36 +51,34 @@ const itemImage = [...document.getElementsByClassName('item')]
 itemImage[currentIndex].classList.add('active')
 
 prev.addEventListener('click', function(){
+  itemImage[currentIndex].classList.remove('active')
+  itemControl[currentIndex].classList.remove('active')
+
   if( currentIndex > 0){
-    itemImage[currentIndex].classList.remove('active')
-    itemControl[currentIndex].classList.remove('active')
     currentIndex--
     itemImage[currentIndex].classList.add('active')
     itemControl[currentIndex].classList.add('active')
   } else {
-    itemImage[currentIndex].classList.remove('active')
-    itemControl[currentIndex].classList.remove('active')
     currentIndex = items.length - 1
-    itemImage[currentIndex].classList.add('active')
-    itemControl[currentIndex].classList.add('active')
   }
-
+  itemImage[currentIndex].classList.add('active')
+  itemControl[currentIndex].classList.add('active')
+  
 })
 
 next.addEventListener('click', function(){
+  itemImage[currentIndex].classList.remove('active')
+  itemControl[currentIndex].classList.remove('active')
+  
   if (currentIndex < items.length - 1){
-    itemImage[currentIndex].classList.remove('active')
-    itemControl[currentIndex].classList.remove('active')
     currentIndex++
     itemImage[currentIndex].classList.add('active')
     itemControl[currentIndex].classList.add('active')
   } else {
-    itemImage[currentIndex].classList.remove('active')
-    itemControl[currentIndex].classList.remove('active')
     currentIndex = 0
-    itemImage[currentIndex].classList.add('active')
-    itemControl[currentIndex].classList.add('active')
   }
+  itemImage[currentIndex].classList.add('active')
+  itemControl[currentIndex].classList.add('active')
 })
 
 
