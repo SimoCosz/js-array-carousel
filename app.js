@@ -50,8 +50,6 @@ const prev = document.querySelector('.go-up')
 const itemImage = [...document.getElementsByClassName('item')]
 itemImage[currentIndex].classList.add('active')
 
-
-
 prev.addEventListener('click', function(){
   if( currentIndex > 0){
     itemImage[currentIndex].classList.remove('active')
@@ -69,19 +67,18 @@ next.addEventListener('click', function(){
     currentIndex++
     itemImage[currentIndex].classList.add('active')
     itemControl[currentIndex].classList.add('active')
-
   }
 })
+
+const itemControl = [...document.getElementsByClassName('image')]
+itemControl[currentIndex].classList.add('active')
 
 for (let i=0; i < items.length; i++){
   const navImage = `
     <div class="controls ">
       <img class="image" src="${items[i]}" alt="">
-    </div>
-  `
+    </div>  
+  `  
   controlImage.innerHTML += navImage
-}
-
-const itemControl = [...document.getElementsByClassName('image')]
-itemControl[currentIndex].classList.add('active')
+}  
 
